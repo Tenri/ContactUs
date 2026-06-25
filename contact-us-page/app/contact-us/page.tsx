@@ -64,7 +64,7 @@ export default function ContactUs() {
   
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-white font-sans dark:bg-black">
+    <div className="flex flex-col flex-1 items-center justify-center bg-white font-sans">
       <main className="flex flex-1 w-full max-w-6xl flex-col pt-8 px-16 bg-white">
         <h1 className="text-3xl font-bold">Contact us, we would love to hear from you!</h1>
         <div className="flex flex-row items-center gap-6 py-24 text-center sm:items-start sm:text-left w-full h-full">
