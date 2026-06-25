@@ -9,6 +9,8 @@ Assumptions:
 - Home page being barebones is OK for now as its sole purpose is to allow for navigation to core components
 - Good practice to auto redirect back to home after a thank you message (5 second timeout)
 - Links under send message are non-functional for this task
+- Utilising axios in next to access apis
+- Not handling styling on excessibly long notes
 
 
 

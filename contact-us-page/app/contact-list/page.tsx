@@ -11,11 +11,16 @@ export default  function ContactList() {
     }, []);
 
 
-    const handleVerify = (contact: any) => {
-        if (contact.verified === false) {
+    const handleVerify = async (id: number) => {
+        await axios.patch(`http://localhost:3001/contacts/${id}`, { verified: true });
+        setContacts((curr: any) => 
+        curr.map((c: any) => c.id === id ? { ...c, verified: true } : c)
+        );
+    }
 
-            console.log(`Contact ${contact.id} marked as verified`);
-        }
+    const handleDelete = async (id: number) => {
+        await axios.delete(`http://localhost:3001/contacts/${id}`);
+        setContacts((curr: any) => curr.filter((c: any) => c.id !== id));
     }
 
     return (
@@ -23,13 +28,14 @@ export default  function ContactList() {
         <main className="w-full max-w-6xl mx-auto px-16 py-8">
             <h1 className="text-3xl font-bold mb-8">Contact List</h1>
             <div className="bg-zinc-50 p-8">
-                <table className="w-full text-sm text-left border border-zinc-200 rounded-lg divide-y divide-zinc-200">
+                <table className="w-full text-sm text-left border border-black rounded-lg divide-y divide-black">
                     <thead className="border-b">
                         <tr>
                         <th className="py-3 font-semibold">First name</th>
                         <th className="py-3 font-semibold">Last name</th>
                         <th className="py-3 font-semibold">Email address</th>
                         <th className="py-3 font-semibold">Phone number</th>
+                        <th className="py-3 font-semibold">Note</th>
                         <th className="py-3 font-semibold">Verified</th>
                         <th className="py-3 font-semibold">Actions</th>
                         </tr>
@@ -41,15 +47,20 @@ export default  function ContactList() {
                             <td className="py-3">{contact.lastName}</td>
                             <td className="py-3">{contact.email}</td>
                             <td className="py-3">{contact.phone}</td>
+                            <td className="py-3">{contact.note}</td>
                             <td className="py-3">{<button
-                                onClick={() => contact.verified ? null : handleVerify(contact)}
+                                onClick={() => contact.verified ? null : handleVerify(contact.id)}
                                 disabled={contact.verified}
                                 className={contact.verified ? 'text-gray-400' : 'text-green-600 hover:underline'}
                                 >
                                 {contact.verified ? 'Verified' : 'Mark as verified'}
                                 </button>} </td>
                             <td className="py-3">
-                                <button className="text-red-600 hover:underline">Delete</button>
+                                <button 
+                                onClick={() => handleDelete(contact.id)}
+                                className="text-red-600 hover:underline">
+                                    Delete
+                                </button>
                             </td>
                         </tr>
                         ))}
