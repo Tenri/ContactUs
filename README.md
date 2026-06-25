@@ -7,9 +7,11 @@
 ### Steps:
 1. Clone the repo:
 https://github.com/Tenri/ContactUs/
+cd ContactUs/
 
 2. Start all docker services by running:
 docker-compose up --build
+
 
 3. Access the application:
 - Frontend runs at: https://localhost:3000

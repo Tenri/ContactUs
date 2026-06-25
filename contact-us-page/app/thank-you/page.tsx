@@ -1,8 +1,8 @@
 'use client'
 import { useSearchParams, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 
-export default function ThankYou() {
+function ThankYouContent() {
   const searchParams = useSearchParams();
   const firstName = searchParams.get('firstName');
   const router = useRouter();
@@ -23,5 +23,13 @@ export default function ThankYou() {
         <p className="text-sm text-gray-400">Redirecting to home page in 5 seconds...</p>
       </main>
     </div>
+  )
+}
+
+export default function ThankYou() {
+  return (
+    <Suspense>
+      <ThankYouContent />
+    </Suspense>
   )
 }
