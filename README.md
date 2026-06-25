@@ -41,3 +41,4 @@ docker-compose up --build
   (First time utilising, thought it was a good chance to learn with this project)
 - Quickly match styling across website
 - Assistance in building out dockerfiles
+- Heavy assistance debugging docker quicks with API referencing

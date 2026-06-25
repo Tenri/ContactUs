@@ -19,10 +19,9 @@ services:
       DB_HOST: db
 
   client:
-    build: ./contact-us-page
+    build:
+      context: ./contact-us-page
+      args:
+        NEXT_PUBLIC_API_URL: http://server:3001
     ports:
       - "3000:3000"
-    depends_on:
-      - server
-    environment:
-      NEXT_PUBLIC_API_URL: http://server:3001

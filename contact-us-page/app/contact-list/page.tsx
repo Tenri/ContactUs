@@ -6,20 +6,20 @@ export default  function ContactList() {
     const [contacts, setContacts] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/contacts`)
+        axios.get(`http://localhost:3001/contacts`)
         .then(res => setContacts(res.data));
     }, []);
 
 
     const handleVerify = async (id: number) => {
-        await axios.patch(`${process.env.NEXT_PUBLIC_API_URL}/contacts/${id}`, { verified: true });
+        await axios.patch(`http://localhost:3001/contacts/${id}`, { verified: true });
         setContacts((curr: any) => 
         curr.map((c: any) => c.id === id ? { ...c, verified: true } : c)
         );
     }
 
     const handleDelete = async (id: number) => {
-        await axios.delete(`${process.env.NEXT_PUBLIC_API_URL}/contacts/${id}`);
+        await axios.delete(`http://localhost:3001/contacts/${id}`);
         setContacts((curr: any) => curr.filter((c: any) => c.id !== id));
     }
 

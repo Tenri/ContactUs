@@ -55,7 +55,7 @@ export default function ContactUs() {
     e.preventDefault();
 
     if (validateSubmit()) {
-      await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/contacts`, form);
+      await axios.post(`http://localhost:3001/contacts`, form);
       console.log(form.firstName, form.lastName, form.email, form.phone, form.note);
       router.push(`/thank-you?firstName=${form.firstName}`);
     }
