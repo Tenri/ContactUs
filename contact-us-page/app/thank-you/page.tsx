@@ -19,6 +19,7 @@ export default function ThankYou() {
     <div>
       <h1>Thank you, {firstName}!</h1>
       <p>We'll be in touch soon.</p>
+        <p className="opacity-75">Redirecting to home page in 5 seconds...</p>
     </div>
   )
 }

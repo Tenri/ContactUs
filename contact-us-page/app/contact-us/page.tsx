@@ -64,71 +64,63 @@ export default function ContactUs() {
   
 
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white sm:items-start">
-        <h1>Contact us, we would love to hear from you!</h1>
-        <div className="flex flex-row items-center gap-6 text-center sm:items-start sm:text-left w-full h-full">
-          <div className="flex flex- gap-4 text-base font-medium sm:flex-row bg-white">
-            <p>Welcome to OpenAgent. We've been around since 2013, and our vision is to make it easy for people to buy, sell and own property.
+    <div className="flex flex-col flex-1 items-center justify-center bg-white font-sans dark:bg-black">
+      <main className="flex flex-1 w-full max-w-6xl flex-col pt-8 px-16 bg-white">
+        <h1 className="text-3xl font-bold">Contact us, we would love to hear from you!</h1>
+        <div className="flex flex-row items-center gap-6 py-24 text-center sm:items-start sm:text-left w-full h-full">
+          <div className="w-1/2 bg-white">
+            <div className="flex flex-col gap-3 text-sm">
+              <p>Welcome to OpenAgent. We've been around since 2013, and our vision is to make it easy for people to buy, sell and own property.</p>
+                <p>Here are the different ways you can contact us.</p>
 
-                Here are the different ways you can contact us.
+                <p className="font-bold underline">Contact Us Details</p>
+                <div>
+                  <p><span className="font-bold">Phone:</span> 13 24 34</p>
+                  <p><span className="font-bold">Email:</span> support@openagent.com.au</p>
+                </div>
+                <p>For media enquiries, please visit our <span className="underline text-green-600">Media and Press</span> page.</p>
 
-                Contact Us Details
+                <p className="font-bold underline">Postal Address</p>
+                <p>PO Box 419, Alexandria NSW 1435</p>
 
-                Phone: 13 24 34
-                Email: support@openagent.com.au
-
-                For media enquiries, please visit our Media and Press page.
-
-                Postal Address
-
-                PO Box 419, Alexandria NSW 1435
-
-                Contact Centre Hours of Operation
-
-                Monday - Friday 8:30 - 5:00
-              </p>
+                <p className="font-bold underline">Contact Centre Hours of Operation</p>
+                <p>Monday - Friday 8:30 - 5:00</p>
+              </div>
           </div>
-          <div className="flex flex- gap-4 text-base font-medium sm:flex-row">
-            <form className="flex flex-col gap-4 w-full max-w-md bg-zinc-50 p-8" onSubmit={handleSubmit}>
+          <div className="w-1/2 bg-zinc-50">
+            <form className="flex flex-col gap-4 w-full bg-zinc-50 p-8" onSubmit={handleSubmit}>
               <h2 className="text-2xl font-bold mb-4">Contact Us</h2>
 
-              <label htmlFor="firstName" className="font-medium">
-                First name
-              </label>
               <input
+                placeholder="First name"
                 type="text"
                 id="firstName"
                 name="firstName"
-                className="border border-gray-300 p-2"
+                className="border border-gray-300 p-2 rounded"
                 onChange={(e) => {
                   setForm({ ...form, firstName: e.target.value });
                 }}
                 required
               />
 
-              <label htmlFor="lastName" className="font-medium">
-                Last name
-              </label>
               <input
+                placeholder="Last name"
                 type="text"
                 id="lastName"
                 name="lastName"
-                className="border border-gray-300 p-2"
+                className="border border-gray-300 p-2 rounded"
                 onChange={(e) => {
                   setForm({ ...form, lastName: e.target.value });
                 }}
                 required
               />
 
-              <label htmlFor="email" className="font-medium">
-                Email
-              </label>
               <input
+                placeholder="Email address"
                 type="text"
                 id="email"
                 name="email"
-                className="border border-gray-300 p-2"
+                className="border border-gray-300 p-2 rounded"
                 onChange={(e) => {
                   setForm({ ...form, email: e.target.value });
                   validateEmail(e.target.value);
@@ -136,14 +128,12 @@ export default function ContactUs() {
                 required/>
               {emailError && <p className="text-red-500 text-sm">{emailError}</p>}
 
-              <label htmlFor="phone" className="font-medium">
-                Phone
-              </label>
               <input
+                placeholder="Phone number"
                 type="tel"
                 id="phone"
                 name="phone"
-                className="border border-gray-300 p-2"
+                className="border border-gray-300 p-2 rounded"
                 onChange={(e) => {
                   setForm({ ...form, phone: e.target.value });
                   validatePhone(e.target.value);
@@ -152,23 +142,27 @@ export default function ContactUs() {
               />
               {phoneError && <p className="text-red-500 text-sm">{phoneError}</p>}
 
-              <label htmlFor="note" className="font-medium">
-                Additional information
-              </label>
               <textarea
+                placeholder="What do you want to speak to us about"
                 id="note"
                 name="note"
-                className="border border-gray-300 p-2"
+                className="border border-gray-300 p-2 rounded"
+                rows={10}
                 onChange={(e) => setForm({ ...form, note: e.target.value })}
               />
 
               <button
                 type="submit"
-                className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                className="bg-green-600 text-white py-2 px-4 rounded hover:bg-blue-600"
               >
-                Submit
+                Send Message
               </button>
 
+                <p className="text-xs text-gray-400 rounded">
+                  By sending a message you agree to the{' '}
+                  <span className="underline text-green-600">Terms and Conditions</span> and{' '}
+                  <span className="underline text-green-600">Privacy Policy</span>
+                </p>
             </form>
           </div>
         </div>

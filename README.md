@@ -8,7 +8,7 @@ Assumptions:
 - Safely remove the About Us page, so Home will directly connect to Contact us and Contact list
 - Home page being barebones is OK for now as its sole purpose is to allow for navigation to core components
 - Good practice to auto redirect back to home after a thank you message (5 second timeout)
-
+- Links under send message are non-functional for this task
 
 
 
