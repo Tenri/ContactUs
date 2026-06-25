@@ -2,9 +2,12 @@
 
 import React from "react";
 import axios from 'axios';
-
+import { useRouter } from 'next/navigation';
 
 export default function ContactUs() {
+  const router = useRouter();
+
+
   const [emailError, setEmailError] = React.useState('');
   const [phoneError, setPhoneError] = React.useState('');
   const [submitError, setSubmitError] = React.useState('');
@@ -54,6 +57,7 @@ export default function ContactUs() {
     if (validateSubmit()) {
       await axios.post('http://localhost:3001/contacts', form);
       console.log(form.firstName, form.lastName, form.email, form.phone, form.note);
+      router.push(`/thank-you?firstName=${form.firstName}`);
     }
   }
 
