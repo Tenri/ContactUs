@@ -2,7 +2,6 @@
 
 ### Prerequisites
 - Have Docker Desktop installed
-- Node.js 20+
 
 ### Steps:
 1. Clone the repo:
