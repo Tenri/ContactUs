@@ -1,6 +1,8 @@
 'use client'
 
 import React from "react";
+import axios from 'axios';
+
 
 export default function ContactUs() {
   const [emailError, setEmailError] = React.useState('');
@@ -46,10 +48,11 @@ export default function ContactUs() {
 
 
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = async (e: any) => {
     e.preventDefault();
 
     if (validateSubmit()) {
+      await axios.post('http://localhost:3001/contacts', form);
       console.log(form.firstName, form.lastName, form.email, form.phone, form.note);
     }
   }
