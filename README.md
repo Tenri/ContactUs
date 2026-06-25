@@ -1,6 +1,7 @@
 Assumptions:
 - Utilisation of ORM over raw sql (TypeORM due to native packages from nestjs)i
-- No logging of creation date or admin validation of contact before creating an entry.
+- Newest first is a core feature so it is baked into the injectable. Not modularly created to allow for sorting down the line. 
+
 
 
 
