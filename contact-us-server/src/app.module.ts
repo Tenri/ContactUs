@@ -10,7 +10,7 @@ import { ContactsModule } from './contacts/contacts.module';
   imports: [
    TypeOrmModule.forRoot({
       type: 'postgres',
-      host: 'localhost',
+      host: process.env.DB_HOST || 'localhost',
       port: 5432,
       username: 'root',
       password: 'root',
