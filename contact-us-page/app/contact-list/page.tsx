@@ -6,7 +6,7 @@ export default  function ContactList() {
     const [contacts, setContacts] = React.useState([]);
 
     React.useEffect(() => {
-        axios.get('${process.env.NEXT_PUBLIC_API_URL}/contacts')
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/contacts`)
         .then(res => setContacts(res.data));
     }, []);
 
