@@ -32,7 +32,7 @@ docker-compose up --build
 - Utilising axios in next to access apis
 - Not handling styling on excessivly long notes
 - Australian mobile number validation means either "04xxxxxxxx" or "614xxxxxxxx"
-
+- Maintain Synchronize: on in nest as this is a test project. In prod this should be turned off due to it potentially causing db issues.
 
 
 ## AI Utilisation:
