@@ -7,13 +7,15 @@
 ### Steps:
 1. Clone the repo:
 https://github.com/Tenri/ContactUs/
+
+2. navigate to the correct directory
 cd ContactUs/
 
-2. Start all docker services by running:
+3. Start all docker services by running:
 docker-compose up --build
 
 
-3. Access the application:
+4. Access the application:
 - Frontend runs at: https://localhost:3000
 - Backend runs at: https://localhost:3001
 - Postgres database runs interally on port 5432
